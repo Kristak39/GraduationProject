@@ -14,17 +14,17 @@ public class ProductsService {
     private ProductsRepository productsRepository;
 
     public List<Products> getAllProducts() {
-      return   productsRepository.findAll();
+      return productsRepository.findAll();
     }
 
     public Products getProductById(int id) {
         return productsRepository.findById(id).get();
     }
-    public Products addProduct(Products products) {
-        return productsRepository.save(products);
+    public void addProduct(Products products) {
+         productsRepository.save(products);
     }
-    public Products updateProduct(Products products) {
-        return productsRepository.save(products);
+    public void updateProduct(Products products) {
+         productsRepository.save(products);
     }
     public void deleteProduct(int id) {
         productsRepository.deleteById(id);

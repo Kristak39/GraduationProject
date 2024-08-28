@@ -20,8 +20,12 @@ public class CostumersService {
         return costumersRepository.findById(id).get();
     }
 
-    public Costumers updateCostumers(Costumers costumers){
-        return costumersRepository.save(costumers);
+    public void save(Costumers costumers){
+        costumersRepository.save(costumers);
+    }
+
+    public void updateCostumers(Costumers costumers){
+        costumersRepository.save(costumers);
     }
 
     public void deleteCostumers(int id){

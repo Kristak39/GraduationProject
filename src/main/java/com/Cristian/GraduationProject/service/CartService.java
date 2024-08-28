@@ -21,8 +21,8 @@ public class CartService {
     public Cart getCartById(int id){
         return cartRepository.findById(id).get();
     }
-    public Cart addCart(Cart cart){
-        return cartRepository.save(cart);
+    public void addCart(Cart cart){
+         cartRepository.save(cart);
     }
     public Cart updateCart(int index, Cart cart){
         Cart cartTemp = new Cart();

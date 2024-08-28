@@ -19,11 +19,11 @@ public class SupplierService {
     public Supplier getSupplierById(int id) {
         return supplierRepository.findById(id).get();
     }
-    public Supplier saveSupplier(Supplier supplier) {
-        return supplierRepository.save(supplier);
+    public void saveSupplier(Supplier supplier) {
+        supplierRepository.save(supplier);
     }
-    public Supplier updateSupplier(Supplier supplier) {
-        return supplierRepository.save(supplier);
+    public void updateSupplier(Supplier supplier) {
+        supplierRepository.save(supplier);
     }
     public void deleteSupplierById(int id) {
         supplierRepository.deleteById(id);
