@@ -2,11 +2,16 @@ package com.Cristian.GraduationProject.service;
 
 import com.Cristian.GraduationProject.entity.Cart;
 import com.Cristian.GraduationProject.repository.CartRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CartService {
 
+
+    @Autowired
     CartRepository cartRepository;
     
     public List<Cart> getAllCarts(){
