@@ -30,9 +30,6 @@ public class Supplier {
     @Column(nullable = false)
     String supplierEmail;
 
-    @OneToMany
-    List<Address> addresses;
-
     @ManyToMany
-    Set<Address> addressSet;
+    List<Address> addresses;
 }
