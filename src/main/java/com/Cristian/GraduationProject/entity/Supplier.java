@@ -31,5 +31,5 @@ public class Supplier {
     String supplierEmail;
 
     @ManyToMany
-    List<Address> addresses;
+    Set<Address> addresses;
 }
