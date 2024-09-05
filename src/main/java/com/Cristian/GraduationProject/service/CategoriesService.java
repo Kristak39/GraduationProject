@@ -17,7 +17,7 @@ public class CategoriesService {
         return categoriesRepository.findAll();
     }
 
-    public Categories getCategoriesById(int id) {
+    public Categories getCategoriesById(long id) {
         return categoriesRepository.findById(id).get();
     }
     public Categories addCategories(Categories categories) {
@@ -28,7 +28,7 @@ public class CategoriesService {
         return categoriesRepository.save(categories);
     }
 
-    public void deleteCategories(int id) {
+    public void deleteCategories(long id) {
         categoriesRepository.deleteById(id);
     }
 }

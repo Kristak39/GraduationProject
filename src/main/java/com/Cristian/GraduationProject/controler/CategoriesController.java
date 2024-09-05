@@ -1,7 +1,7 @@
 package com.Cristian.GraduationProject.controler;
 
 import com.Cristian.GraduationProject.entity.Categories;
-import org.springframework.stereotype.Controller;
+import com.Cristian.GraduationProject.service.CategoriesService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,30 +9,31 @@ import java.util.List;
 @RestController
 public class CategoriesController {
 
-    CategoriesController categoriesController;
+
+    private CategoriesService categoriesService;
 
     @GetMapping("/allCategories")
     public List<Categories> getAllCategories(){
-        return categoriesController.getAllCategories();
+        return categoriesService.getAllCategories();
     }
 
-    @PostMapping("/findCategory/{index}")
-    public Categories findCategory(@PathVariable int index){
-        return categoriesController.findCategory(index);
+    @GetMapping("/findCategory/{index}")
+    public Categories findCategory(@PathVariable long index){
+        return categoriesService.getCategoriesById(index);
     }
 
     @PostMapping("/addCategory")
     public Categories addCategory(@RequestBody Categories categories){
-        return categoriesController.addCategory(categories);
+        return categoriesService.addCategories(categories);
     }
 
-    @PutMapping("/updateCategory/{index}")
-    public Categories updateCategory(@PathVariable int index,@RequestBody Categories categories){
-        return categoriesController.updateCategory(index,categories);
-    }
+//    @PutMapping("/updateCategory/{index}")
+//    public Categories updateCategory(@PathVariable int index,@RequestBody Categories categories){
+//        return categoriesService.updateCategories(index,categories);
+//    }
 
     @DeleteMapping("deleteCategory/{index}")
-    public void deleteCategory(@PathVariable int index){
-        categoriesController.deleteCategory(index);
+    public void deleteCategory(@PathVariable long index){
+        categoriesService.deleteCategories(index);
     }
 }

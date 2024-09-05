@@ -18,8 +18,8 @@ public class CostumersController {
         return costumersService.getAllCostumers();
     }
 
-    @PostMapping("/getCostumer/{index}")
-    public Costumers getCostumer(@PathVariable int index){
+    @GetMapping("/getCostumer/{index}")
+    public Costumers getCostumer(@PathVariable long index){
         return costumersService.getCostumerById(index);
     }
 
@@ -34,7 +34,7 @@ public class CostumersController {
     }
 
     @DeleteMapping("/deleteCostumer/{index}")
-    public void deleteCostumer(@PathVariable int index){
+    public void deleteCostumer(@PathVariable long index){
         costumersService.deleteCostumers(index);
     }
 }

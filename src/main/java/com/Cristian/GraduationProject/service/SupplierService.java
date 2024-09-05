@@ -16,7 +16,7 @@ public class SupplierService {
     public List<Supplier> getAllSuppliers() {
         return supplierRepository.findAll();
     }
-    public Supplier getSupplierById(int id) {
+    public Supplier getSupplierById(long id) {
         return supplierRepository.findById(id).get();
     }
     public void saveSupplier(Supplier supplier) {
@@ -25,7 +25,7 @@ public class SupplierService {
     public void updateSupplier(Supplier supplier) {
         supplierRepository.save(supplier);
     }
-    public void deleteSupplierById(int id) {
+    public void deleteSupplierById(long id) {
         supplierRepository.deleteById(id);
     }
 }

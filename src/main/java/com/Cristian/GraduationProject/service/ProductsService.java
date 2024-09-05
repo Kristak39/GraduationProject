@@ -17,16 +17,19 @@ public class ProductsService {
       return productsRepository.findAll();
     }
 
-    public Products getProductById(int id) {
+    public Products getProductById(long id) {
         return productsRepository.findById(id).get();
     }
     public void addProduct(Products products) {
          productsRepository.save(products);
     }
+
     public void updateProduct(Products products) {
          productsRepository.save(products);
     }
-    public void deleteProduct(int id) {
+
+    public void deleteProduct(long id) {
         productsRepository.deleteById(id);
     }
+
 }

@@ -2,12 +2,13 @@ package com.Cristian.GraduationProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
+@EnableCaching
 @SpringBootApplication
 public class GraduationProjectApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GraduationProjectApplication.class, args);
+	public static void main(String[] args) {SpringApplication.run(GraduationProjectApplication.class, args);
 	}
 
 }

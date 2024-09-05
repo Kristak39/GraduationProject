@@ -16,7 +16,7 @@ public class CostumersService {
     public List<Costumers> getAllCostumers(){
         return costumersRepository.findAll();
     }
-    public Costumers getCostumerById(int id){
+    public Costumers getCostumerById(long id){
         return costumersRepository.findById(id).get();
     }
 
@@ -28,7 +28,7 @@ public class CostumersService {
         costumersRepository.save(costumers);
     }
 
-    public void deleteCostumers(int id){
+    public void deleteCostumers(long id){
         costumersRepository.deleteById(id);
     }
 }

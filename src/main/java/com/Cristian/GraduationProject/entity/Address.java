@@ -3,41 +3,34 @@ package com.Cristian.GraduationProject.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Costumers {
+@Entity
+public class Address {
 
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    long costumerId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    long address_id;
 
     @Column(nullable = false)
-    String firstName;
+    String street;
 
     @Column(nullable = false)
-    String lastName;
+    String city;
 
     @Column(nullable = false)
-    String email;
+    String state;
 
     @Column(nullable = false)
-    String phone;
+    String zip;
 
-    @ManyToMany
-    Set<Address> addresses;
-
-    @ManyToMany
-    Set<Products> products;
+    @Column(nullable = false)
+    String country;
 }

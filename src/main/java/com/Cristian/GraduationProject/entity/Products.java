@@ -1,37 +1,48 @@
 package com.Cristian.GraduationProject.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Products {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private int productId;
+    long product_id;
 
     @Column(nullable = false)
-    private int productCategoryId;
+    String product_name;
 
     @Column(nullable = false)
-    private String productName;
+    String product_description;
 
     @Column(nullable = false)
-    private String productDescription;
+    double productPrice;
 
     @Column(nullable = false)
-    private double productPrice;
+    int unitInStock;
 
     @Column(nullable = false)
-    private int unitInStock;
+    int unitOnOrder;
 
-    @Column(nullable = false)
-    private int unitOnOrder;
+    @ManyToOne
+    Categories category;
+
+    @ManyToOne
+    Supplier supplier;
 
 }
