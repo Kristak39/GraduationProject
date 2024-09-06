@@ -4,12 +4,9 @@ import com.Cristian.GraduationProject.entity.Products;
 import com.Cristian.GraduationProject.service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 
 @RestController
