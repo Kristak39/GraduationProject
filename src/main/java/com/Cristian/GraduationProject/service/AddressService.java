@@ -19,19 +19,22 @@ public class AddressService {
     }
 
     public Address getAddressById(long id) {
-        return addressRepository.findById(id).get();
+        return  addressRepository.findById(id).isPresent()
+                ? addressRepository.findById(id).get() : null;
     }
     public void addAddress(Address address) {
         addressRepository.save(address);
     }
 
-    public void updateAddress(Address address) {
-        addressRepository.save(new Address(address.getAddress_id(),
+    public void updateAddress(long index, Address address) {
+        if (addressRepository.findById(index).isPresent()) {
+        addressRepository.save(new Address(index,
                 address.getStreet(),
                 address.getCity(),
                 address.getState(),
                 address.getZip(),
-                address.getCountry()));
+                address.getCountry()));}
+        else addressRepository.save(address);
     }
 
     public void deleteAddress(long id) {

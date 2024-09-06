@@ -14,11 +14,6 @@ public class ProductsController {
     @Autowired
     private ProductsService productsService;
 
-    @Autowired
-    private RedisTemplate <String, String> redisTemplate;
-
-    private static final String STRING_KEY_PREFIX = "redis:com:Cristian:graduation:project:products";
-
     @GetMapping("/getAllProducts")
     public List getAllProducts(){
         return productsService.getAllProducts();
@@ -29,9 +24,9 @@ public class ProductsController {
         return productsService.getProductById(index);
     }
 
-    @PutMapping("/updateProduct")
-    public void updateProduct(@RequestBody Products products){
-        productsService.updateProduct(products);
+    @PutMapping("/updateProduct/{index}")
+    public void updateProduct(@PathVariable long index,@RequestBody Products products){
+        productsService.updateProduct(index, products);
     }
 
     @PostMapping("/addProduct")

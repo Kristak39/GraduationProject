@@ -28,9 +28,9 @@ public class CostumersController {
         costumersService.save(costumers);
     }
 
-    @PutMapping("/updateCostumer")
-    public void updateCostumer(@RequestBody Costumers costumers){
-       costumersService.save(costumers);
+    @PutMapping("/updateCostumer/{index}")
+    public void updateCostumer(@PathVariable long index, @RequestBody Costumers costumers){
+       costumersService.updateCostumers(index, costumers);
     }
 
     @DeleteMapping("/deleteCostumer/{index}")

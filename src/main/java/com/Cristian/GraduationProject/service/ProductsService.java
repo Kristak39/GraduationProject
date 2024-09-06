@@ -18,14 +18,16 @@ public class ProductsService {
     }
 
     public Products getProductById(long id) {
-        return productsRepository.findById(id).get();
+        return productsRepository.findById(id).isPresent()
+                ? productsRepository.findById(id).get() : null;
     }
     public void addProduct(Products products) {
          productsRepository.save(products);
     }
 
-    public void updateProduct(Products products) {
-         productsRepository.save(new Products(products.getProduct_id(),
+    public void updateProduct(long index, Products products) {
+        if (productsRepository.findById(index).isPresent()) {
+         productsRepository.save(new Products(index,
                  products.getProduct_name(),
                  products.getProduct_description(),
                  products.getProductPrice(),
@@ -33,6 +35,7 @@ public class ProductsService {
                  products.getUnitOnOrder(),
                  products.getCategory(),
                  products.getSupplier()));
+        }else productsRepository.save(products);
     }
 
     public void deleteProduct(long id) {

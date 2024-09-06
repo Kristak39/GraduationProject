@@ -23,14 +23,14 @@ public class CategoriesController {
     }
 
     @PostMapping("/addCategory")
-    public Categories addCategory(@RequestBody Categories categories){
-        return categoriesService.addCategories(categories);
+    public void addCategory(@RequestBody Categories categories){
+        categoriesService.addCategories(categories);
     }
 
-//    @PutMapping("/updateCategory/{index}")
-//    public Categories updateCategory(@PathVariable int index,@RequestBody Categories categories){
-//        return categoriesService.updateCategories(index,categories);
-//    }
+    @PutMapping("/updateCategory/{index}")
+    public void updateCategory(@PathVariable long index, @RequestBody Categories categories){
+        categoriesService.updateCategories(index,categories);
+    }
 
     @DeleteMapping("deleteCategory/{index}")
     public void deleteCategory(@PathVariable long index){

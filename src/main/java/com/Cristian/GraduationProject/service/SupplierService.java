@@ -17,16 +17,19 @@ public class SupplierService {
         return supplierRepository.findAll();
     }
     public Supplier getSupplierById(long id) {
-        return supplierRepository.findById(id).get();
+        return supplierRepository.findById(id).isPresent()
+                ? supplierRepository.findById(id).get() : null;
     }
     public void saveSupplier(Supplier supplier) {
         supplierRepository.save(supplier);
     }
-    public void updateSupplier(Supplier supplier) {
-        supplierRepository.save(new Supplier(supplier.getSupplier_id(),
-                supplier.getSupplierName(),
-                supplier.getSupplierPhone(),supplier.getSupplierEmail()
-                ,supplier.getAddresses()));
+    public void updateSupplier(long index, Supplier supplier) {
+        if (supplierRepository.findById(index).isPresent()) {
+            supplierRepository.save(new Supplier(supplier.getSupplier_id(),
+                    supplier.getSupplierName(),
+                    supplier.getSupplierPhone(), supplier.getSupplierEmail()
+                    , supplier.getAddresses()));
+        }else supplierRepository.save(supplier);
     }
     public void deleteSupplierById(long id) {
         supplierRepository.deleteById(id);

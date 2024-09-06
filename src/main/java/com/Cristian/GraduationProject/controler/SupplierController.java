@@ -26,9 +26,9 @@ public class SupplierController {
         supplierService.saveSupplier(supplier);
     }
 
-    @PutMapping("update")
-    public void updateSupplier(@RequestBody Supplier supplier) {
-        supplierService.updateSupplier(supplier);
+    @PutMapping("/update/{index}")
+    public void updateSupplier(@PathVariable long index,@RequestBody Supplier supplier) {
+        supplierService.updateSupplier(index, supplier);
     }
 
     @GetMapping("/get_by_index/{index}")

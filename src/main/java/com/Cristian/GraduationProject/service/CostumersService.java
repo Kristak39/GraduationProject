@@ -17,21 +17,24 @@ public class CostumersService {
         return costumersRepository.findAll();
     }
     public Costumers getCostumerById(long id){
-        return costumersRepository.findById(id).get();
+        return costumersRepository.findById(id).isPresent()
+                ? costumersRepository.findById(id).get() : null;
     }
 
     public void save(Costumers costumers){
         costumersRepository.save(costumers);
     }
 
-    public void updateCostumers(Costumers costumers){
-        costumersRepository.save(new Costumers(costumers.getCostumerId(),
-                costumers.getFirstName(),
-                costumers.getLastName(),
-                costumers.getEmail(),
-                costumers.getPhone(),
-                costumers.getAddresses(),
-                costumers.getProducts()));
+    public void updateCostumers(long index, Costumers costumers){
+        if (costumersRepository.findById(index).isPresent()) {
+            costumersRepository.save(new Costumers(index,
+                    costumers.getFirstName(),
+                    costumers.getLastName(),
+                    costumers.getEmail(),
+                    costumers.getPhone(),
+                    costumers.getAddresses(),
+                    costumers.getProducts()));
+        }else costumersRepository.save(costumers);
     }
 
     public void deleteCostumers(long id){

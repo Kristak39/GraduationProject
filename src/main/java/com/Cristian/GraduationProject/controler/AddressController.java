@@ -26,9 +26,9 @@ public class AddressController {
         addressService.addAddress(address);
     }
 
-    @PutMapping("/updateAddress")
-    public void updateCostumer(@RequestBody Address address){
-        addressService.updateAddress(address);
+    @PutMapping("/updateAddress/{index}")
+    public void updateCostumer(@PathVariable long index, @RequestBody Address address){
+        addressService.updateAddress(index,address);
     }
 
     @DeleteMapping("/deleteCostumer/{index}")

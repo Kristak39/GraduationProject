@@ -18,15 +18,18 @@ public class CategoriesService {
     }
 
     public Categories getCategoriesById(long id) {
-        return categoriesRepository.findById(id).get();
+        return categoriesRepository.findById(id).isPresent()
+                ?categoriesRepository.findById(id).get() : null;
     }
-    public Categories addCategories(Categories categories) {
-        return categoriesRepository.save(new Categories(categories.getCategory_id(),
+    public void addCategories(Categories categories) {
+         categoriesRepository.save(new Categories(categories.getCategory_id(),
                 categories.getCategoryName()));
     }
 
-    public Categories updateCategories(Categories categories) {
-        return categoriesRepository.save(categories);
+    public void updateCategories(long index, Categories categories) {
+        if (categoriesRepository.findById(index).isPresent()) {
+            categoriesRepository.save(new Categories(index, categories.getCategoryName()));
+        }else categoriesRepository.save(categories);
     }
 
     public void deleteCategories(long id) {
