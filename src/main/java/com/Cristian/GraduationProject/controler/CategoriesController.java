@@ -2,6 +2,7 @@ package com.Cristian.GraduationProject.controler;
 
 import com.Cristian.GraduationProject.entity.Categories;
 import com.Cristian.GraduationProject.service.CategoriesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @RestController
 public class CategoriesController {
 
-
+    @Autowired
     private CategoriesService categoriesService;
 
     @GetMapping("/all_categories")
