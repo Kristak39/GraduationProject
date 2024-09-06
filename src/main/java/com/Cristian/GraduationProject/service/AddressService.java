@@ -26,7 +26,12 @@ public class AddressService {
     }
 
     public void updateAddress(Address address) {
-        addressRepository.save(address);
+        addressRepository.save(new Address(address.getAddress_id(),
+                address.getStreet(),
+                address.getCity(),
+                address.getState(),
+                address.getZip(),
+                address.getCountry()));
     }
 
     public void deleteAddress(long id) {

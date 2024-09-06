@@ -25,7 +25,13 @@ public class CostumersService {
     }
 
     public void updateCostumers(Costumers costumers){
-        costumersRepository.save(costumers);
+        costumersRepository.save(new Costumers(costumers.getCostumerId(),
+                costumers.getFirstName(),
+                costumers.getLastName(),
+                costumers.getEmail(),
+                costumers.getPhone(),
+                costumers.getAddresses(),
+                costumers.getProducts()));
     }
 
     public void deleteCostumers(long id){

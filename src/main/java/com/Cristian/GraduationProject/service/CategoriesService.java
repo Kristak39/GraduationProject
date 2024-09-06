@@ -21,7 +21,8 @@ public class CategoriesService {
         return categoriesRepository.findById(id).get();
     }
     public Categories addCategories(Categories categories) {
-        return categoriesRepository.save(categories);
+        return categoriesRepository.save(new Categories(categories.getCategory_id(),
+                categories.getCategoryName()));
     }
 
     public Categories updateCategories(Categories categories) {

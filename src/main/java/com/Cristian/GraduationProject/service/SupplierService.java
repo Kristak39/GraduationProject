@@ -23,7 +23,10 @@ public class SupplierService {
         supplierRepository.save(supplier);
     }
     public void updateSupplier(Supplier supplier) {
-        supplierRepository.save(supplier);
+        supplierRepository.save(new Supplier(supplier.getSupplier_id(),
+                supplier.getSupplierName(),
+                supplier.getSupplierPhone(),supplier.getSupplierEmail()
+                ,supplier.getAddresses()));
     }
     public void deleteSupplierById(long id) {
         supplierRepository.deleteById(id);

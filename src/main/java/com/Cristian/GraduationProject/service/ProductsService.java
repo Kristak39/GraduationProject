@@ -25,7 +25,14 @@ public class ProductsService {
     }
 
     public void updateProduct(Products products) {
-         productsRepository.save(products);
+         productsRepository.save(new Products(products.getProduct_id(),
+                 products.getProduct_name(),
+                 products.getProduct_description(),
+                 products.getProductPrice(),
+                 products.getUnitInStock(),
+                 products.getUnitOnOrder(),
+                 products.getCategory(),
+                 products.getSupplier()));
     }
 
     public void deleteProduct(long id) {
