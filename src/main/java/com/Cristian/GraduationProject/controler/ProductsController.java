@@ -14,27 +14,27 @@ public class ProductsController {
     @Autowired
     private ProductsService productsService;
 
-    @GetMapping("/getAllProducts")
+    @GetMapping("/get_all_products")
     public List getAllProducts(){
         return productsService.getAllProducts();
     }
 
-    @GetMapping("/getProductById/{index}")
+    @GetMapping("/get_product_by_index/{index}")
     public Products getProductById(@PathVariable long index){
         return productsService.getProductById(index);
     }
 
-    @PutMapping("/updateProduct/{index}")
+    @PutMapping("/update_product_by_index/{index}")
     public void updateProduct(@PathVariable long index,@RequestBody Products products){
         productsService.updateProduct(index, products);
     }
 
-    @PostMapping("/addProduct")
+    @PostMapping("/add_product")
     public void addProduct(@RequestBody Products products){
         productsService.addProduct(products);
     }
 
-    @DeleteMapping("/deleteProduct/{index}")
+    @DeleteMapping("/delete_product_by_index/{index}")
     public void deleteProduct(@PathVariable long index){
         productsService.deleteProduct(index);
     }

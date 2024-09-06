@@ -13,27 +13,27 @@ public class CostumersController {
     @Autowired
     private CostumersService costumersService;
 
-    @GetMapping("/getCostumers")
+    @GetMapping("/get_all_costumers")
     public List getCostumers(){
         return costumersService.getAllCostumers();
     }
 
-    @GetMapping("/getCostumer/{index}")
+    @GetMapping("/get_costumer_by_index/{index}")
     public Costumers getCostumer(@PathVariable long index){
         return costumersService.getCostumerById(index);
     }
 
-    @PostMapping("/addCostumer")
+    @PostMapping("/add_costumer")
     public void addCostumer(@RequestBody Costumers costumers){
         costumersService.save(costumers);
     }
 
-    @PutMapping("/updateCostumer/{index}")
+    @PutMapping("/update_costumer_by_index/{index}")
     public void updateCostumer(@PathVariable long index, @RequestBody Costumers costumers){
        costumersService.updateCostumers(index, costumers);
     }
 
-    @DeleteMapping("/deleteCostumer/{index}")
+    @DeleteMapping("/delete_costumer_by_index/{index}")
     public void deleteCostumer(@PathVariable long index){
         costumersService.deleteCostumers(index);
     }

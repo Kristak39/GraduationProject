@@ -12,27 +12,27 @@ public class CategoriesController {
 
     private CategoriesService categoriesService;
 
-    @GetMapping("/allCategories")
+    @GetMapping("/all_categories")
     public List<Categories> getAllCategories(){
         return categoriesService.getAllCategories();
     }
 
-    @GetMapping("/findCategory/{index}")
+    @GetMapping("/find_category_by_index/{index}")
     public Categories findCategory(@PathVariable long index){
         return categoriesService.getCategoriesById(index);
     }
 
-    @PostMapping("/addCategory")
+    @PostMapping("/add_category")
     public void addCategory(@RequestBody Categories categories){
         categoriesService.addCategories(categories);
     }
 
-    @PutMapping("/updateCategory/{index}")
+    @PutMapping("/update_category_by_index/{index}")
     public void updateCategory(@PathVariable long index, @RequestBody Categories categories){
         categoriesService.updateCategories(index,categories);
     }
 
-    @DeleteMapping("deleteCategory/{index}")
+    @DeleteMapping("delete_category_by_index/{index}")
     public void deleteCategory(@PathVariable long index){
         categoriesService.deleteCategories(index);
     }

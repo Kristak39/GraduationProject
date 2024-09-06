@@ -15,28 +15,28 @@ public class SupplierController {
     @Autowired
     private SupplierService supplierService;
 
-    @GetMapping("/get_all")
+    @GetMapping("/get_all_suppliers")
     public List<Supplier> getAllSuppliers() {
         return supplierService.getAllSuppliers();
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @PutMapping("/add")
+    @PutMapping("/add-supplier")
     public void addSupplier(@RequestBody Supplier supplier) {
         supplierService.saveSupplier(supplier);
     }
 
-    @PutMapping("/update/{index}")
+    @PutMapping("/update_supplier_by_index/{index}")
     public void updateSupplier(@PathVariable long index,@RequestBody Supplier supplier) {
         supplierService.updateSupplier(index, supplier);
     }
 
-    @GetMapping("/get_by_index/{index}")
+    @GetMapping("/get_supplier_by_index/{index}")
     public Supplier getSupplier(@PathVariable long index) {
         return supplierService.getSupplierById(index);
     }
 
-    @DeleteMapping("/delete_by_index/{index}")
+    @DeleteMapping("/delete_supplier_by_index/{index}")
     public void deleteSupplier(@PathVariable long index) {
         supplierService.deleteSupplierById(index);
     }

@@ -6,32 +6,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RestController()
+@RestController
 public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    @GetMapping("/getAddresses")
+    @GetMapping("/get_all_addresses")
     public List getAddresses() {
         return addressService.getAllAddresses();
     }
 
-    @GetMapping("/getAddress/{index}")
+    @GetMapping("/get_address_by_index/{index}")
     public Address getCostumer(@PathVariable long index){
         return addressService.getAddressById(index);
     }
 
-    @PostMapping("/addCostumer")
+    @PostMapping("/add_address")
     public void addCostumer(@RequestBody Address address){
         addressService.addAddress(address);
     }
 
-    @PutMapping("/updateAddress/{index}")
+    @PutMapping("/update_address_by_index/{index}")
     public void updateCostumer(@PathVariable long index, @RequestBody Address address){
         addressService.updateAddress(index,address);
     }
 
-    @DeleteMapping("/deleteCostumer/{index}")
+    @DeleteMapping("/delete_address_by_index/{index}")
     public void deleteAddress(@PathVariable long index){
         addressService.deleteAddress(index);
     }
